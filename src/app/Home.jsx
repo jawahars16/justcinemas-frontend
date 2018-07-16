@@ -2,7 +2,7 @@ import React from 'react';
 import MovieGrid from '../movies/MovieGrid';
 
 const Home = () => (
-  <div>
+  <div className="container">
     <MovieGrid />
   </div>  
 );

@@ -20,9 +20,9 @@ class MovieGrid extends Component {
 
   showMovies() {
     return (
-      <div>
+      <div className="row">
         {this.props.movies.items.map(({ name, slug }) => (
-          <MovieItem key={name} name={name} slug={slug} />
+          <MovieItem key={name} name={name} slug={slug}/>
         ))}
       </div>
     );
