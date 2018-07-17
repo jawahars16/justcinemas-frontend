@@ -10,11 +10,11 @@ class UPMovieGrid extends Component {
   }
 
   render() {
-    if (this.props.upcomingmovies.fetching) {
+    if (this.props.movies.fetching) {
       return this.showProgress();
     }
 
-    return this.props.upcomingmovies.error || false
+    return this.props.movies.error || false
       ? this.showError()
       : this.showMovies();
   }
@@ -53,7 +53,7 @@ UPMovieGrid.defaultProps = {
 };
 
 UPMovieGrid.propTypes = {
-  upcomingmovies: PropTypes.shape({
+  movies: PropTypes.shape({
     items: PropTypes.array
   })
 };
