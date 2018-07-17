@@ -6,7 +6,7 @@ import fetchMovies from "./actions";
 
 class UPMovieGrid extends Component {
   componentDidMount() {
-    this.props.fetchMovies("", "");
+    this.props.fetchMovies(this.props.filter.language, this.props.filter.location);
   }
 
   render() {
@@ -23,14 +23,14 @@ class UPMovieGrid extends Component {
     return (
 
       <div className="row">
-        {this.props.upcomingmovies.items.map(({ id, name, slug, poster, experiences }) => (
+        {this.props.upcomingmovies.items.map(({ id, name, slug, poster, experience }) => (
           <MovieItem
             key={name}
             id={id}
             name={name}
             slug={slug}
             poster={poster}
-            experiences={experiences}
+            experience={experience}
           />
         ))}
       </div>
@@ -60,7 +60,8 @@ UPMovieGrid.propTypes = {
 
 export default connect(
   state => ({
-    upcomingmovies: state.upcomingmovies
+    upcomingmovies: state.upcomingmovies,
+    filter: state.filter
   }),
   dispatch => ({
     fetchMovies: (lang, loc) => dispatch(fetchMovies(lang, loc))
