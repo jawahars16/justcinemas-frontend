@@ -1,26 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-const MovieItem = ({ id, name, slug, poster, experiences}) => {
-  return (
-    <div className="col-2 card" onClick={() => {document.location.href = `/movie/${id}`}}>
-      <img className="card-img-top" alt={name} src={poster} />
-      <div className="card-body">
-        <h5 className="card-title">{name}</h5>
-        <p className="card-text">{experiences}</p>
-       </div>
-    </div>
-  )
+import React from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+// = ({ id, name, slug, poster, experiences })
+class MovieItem extends React.Component {
+  nextPath(path) {
+    this.props.history.push(path);
+  }
+  render() {
+    return (
+      <div className="col-sm-2" style={{ marginBottom: 10, cursor: 'pointer' }}>
+        <div
+          className="card shadow"
+          onClick={() => {
+            this.nextPath(`/movie/${this.props.id}`);
+          }}
+          style={{ padding: 0, height: 320 }}
+        >
+          <img
+            className="card-img-top"
+            alt={this.props.name}
+            src={this.props.poster}
+          />
+          <div className="card-body">
+            <h6 className="card-title">{this.props.name}</h6>
+            <small className="card-text">{this.props.experiences}</small>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-
-MovieItem.defaultProps = {};
-
-MovieItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
-  experiences: PropTypes.string.isRequired
-};
-
-export default MovieItem;
+export default withRouter(MovieItem);
