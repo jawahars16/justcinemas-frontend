@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MovieItem = ({ name, slug, poster, experiences}) => {
+const MovieItem = ({ id, name, slug, poster, experiences}) => {
   return (
-    <div className="col-2 card">
+    <div className="col-2 card" onClick={() => {document.location.href = `/movie/${id}`}}>
       <img className="card-img-top" alt={name} src={poster} />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
