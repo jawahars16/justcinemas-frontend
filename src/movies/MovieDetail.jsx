@@ -32,7 +32,7 @@ class MovieDetail extends Component {
            Images
         </h5>
         <div className="row">
-            {[1, 2, 3, 4, 5].map(()=> <img className="col-sm" style={{width: 200, height: 200}} src={this.props.detail.data.poster}/>)}
+            {[1, 2, 3, 4, 5, 6].map(()=> <img className="col-sm-2" style={{height: 200}} src={this.props.detail.data.poster}/>)}
         </div>
       </div>
     );
