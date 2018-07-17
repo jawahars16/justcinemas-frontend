@@ -10,11 +10,11 @@ class UPMovieGrid extends Component {
   }
 
   render() {
-    if (this.props.upcomingmovies.fetching) {
+    if (this.props.movies.fetching) {
       return this.showProgress();
     }
 
-    return this.props.upcomingmovies.error || false
+    return this.props.movies.error || false
       ? this.showError()
       : this.showMovies();
   }
@@ -23,7 +23,7 @@ class UPMovieGrid extends Component {
     return (
 
       <div className="row">
-        {this.props.upcomingmovies.items.map(({ id, name, slug, poster, experiences }) => (
+        {this.props.movies.items.map(({ id, name, slug, poster, experiences }) => (
           <MovieItem
             key={name}
             id={id}
@@ -53,14 +53,14 @@ UPMovieGrid.defaultProps = {
 };
 
 UPMovieGrid.propTypes = {
-  upcomingmovies: PropTypes.shape({
+  movies: PropTypes.shape({
     items: PropTypes.array
   })
 };
 
 export default connect(
   state => ({
-    upcomingmovies: state.upcomingmovies
+    movies: state.upcomingmovies
   }),
   dispatch => ({
     fetchMovies: (lang, loc) => dispatch(fetchMovies(lang, loc))
