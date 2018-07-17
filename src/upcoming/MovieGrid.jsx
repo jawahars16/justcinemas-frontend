@@ -23,7 +23,7 @@ class UPMovieGrid extends Component {
     return (
 
       <div className="row">
-        {this.props.upcomingmovies.items.map(({ id, name, slug, poster, experience }) => (
+        {this.props.movies.items.map(({ id, name, slug, poster, experience }) => (
           <MovieItem
             key={name}
             id={id}
@@ -60,7 +60,7 @@ UPMovieGrid.propTypes = {
 
 export default connect(
   state => ({
-    upcomingmovies: state.upcomingmovies,
+    movies: state.upcomingmovies,
     filter: state.filter
   }),
   dispatch => ({
