@@ -1,8 +1,11 @@
 import * as actions from "./filter-actions";
 
+const initialLanguage = window.localStorage.getItem("language");
+const initialLocation = window.localStorage.getItem("location");
+
 const initialState = {
-  language: window.localStorage.getItem("language"),
-  location: window.localStorage.getItem("location")
+  language: initialLanguage == null ? "" : initialLanguage,
+  location: initialLocation == null ? "" : initialLocation
 };
 
 const filter = (state = initialState, action) => {
