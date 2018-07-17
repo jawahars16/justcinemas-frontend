@@ -6,7 +6,7 @@ import fetchMovies from "./actions";
 
 class MovieGrid extends Component {
   componentDidMount() {
-    this.props.fetchMovies("", "");
+    this.props.fetchMovies(this.props.filter.language, this.props.filter.location);
   }
 
   render() {
@@ -59,7 +59,8 @@ MovieGrid.propTypes = {
 
 export default connect(
   state => ({
-    movies: state.movies
+    movies: state.movies,
+    filter: state.filter
   }),
   dispatch => ({
     fetchMovies: (lang, loc) => dispatch(fetchMovies(lang, loc))

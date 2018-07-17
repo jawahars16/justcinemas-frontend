@@ -11,7 +11,12 @@ class MenuBar extends React.Component {
   }
   render() {
     return (
-      <div class="btn-group" role="group" aria-label="Basic example" style={{marginLeft: 15, marginBottom: 20}}>
+      <div
+        class="btn-group"
+        role="group"
+        aria-label="Basic example"
+        style={{ marginLeft: 15, marginBottom: 20 }}
+      >
         <button
           type="button"
           className={`btn btn-primary  ${
