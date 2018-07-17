@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import fetchMovies from './actions';
 
 class MovieGrid extends Component {
-
   componentDidMount() {
     this.props.fetchMovies()
   }
@@ -21,8 +20,8 @@ class MovieGrid extends Component {
   showMovies() {
     return (
       <div className="row">
-        {this.props.movies.items.map(({ name, slug }) => (
-          <MovieItem key={name} name={name} slug={slug}/>
+        {this.props.movies.items.map(({ name, slug, poster, experiences }) => (
+          <MovieItem key={name} name={name} slug={slug} poster={poster} experiences={experiences}/>
         ))}
       </div>
     );
