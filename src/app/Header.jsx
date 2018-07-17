@@ -19,25 +19,19 @@ class Header extends React.Component {
 
   onChangeLocation(e) {
     this.props.locationChanged(e.target.value);
-    this.refreshMovieData();
+    this.refreshMovieData(this.props.filter.language, e.target.value);
   }
 
   onChangeLanguage(e) {
     this.props.languageChanged(e.target.value);
-    this.refreshMovieData();
+    this.refreshMovieData(e.target.value, this.props.filter.location);
   }
 
-  refreshMovieData() {
+  refreshMovieData(language, location) {
     if (window.location.pathname === "/") {
-      this.props.fetchMovies(
-        this.props.filter.language,
-        this.props.filter.location
-      );
+      this.props.fetchMovies(language, location);
     } else if (window.location.pathname === "/upcoming-movies") {
-      this.props.fetchUpcomingMovies(
-        this.props.filter.language,
-        this.props.filter.location
-      );
+      this.props.fetchUpcomingMovies(language, location);
     }
   }
 
@@ -54,7 +48,7 @@ class Header extends React.Component {
             value={this.props.filter.language}
             onChange={this.onChangeLanguage}
           >
-            <option>Select Language</option>
+            <option>All Language</option>
             <option value="English">English</option>
             <option value="Hindi">Hindi</option>
           </select>
@@ -65,7 +59,7 @@ class Header extends React.Component {
             value={this.props.filter.location}
             onChange={this.onChangeLocation}
           >
-            <option>Select Location</option>
+            <option>All Location</option>
             <option value="Pune">Pune</option>
             <option value="Delhi">Delhi</option>
             <option value="Bangalore">Bangalore</option>
