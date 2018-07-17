@@ -6,12 +6,27 @@ import fetchMovies from "./actions";
 
 class UPMovieGrid extends Component {
   componentDidMount() {
-    this.props.fetchMovies(this.props.filter.language, this.props.filter.location);
+    this.props.fetchMovies(
+      this.props.filter.language,
+      this.props.filter.location
+    );
+  }
+
+  showEmptyMoviesPlaceHolder() {
+    return (
+      <div className="text-center">
+        <h3>No Movies found !!!</h3>
+      </div>
+    );
   }
 
   render() {
     if (this.props.movies.fetching) {
       return this.showProgress();
+    }
+
+    if (this.props.movies.items.length === 0) {
+      return this.showEmptyMoviesPlaceHolder();
     }
 
     return this.props.movies.error || false
@@ -21,18 +36,19 @@ class UPMovieGrid extends Component {
 
   showMovies() {
     return (
-
       <div className="row">
-        {this.props.movies.items.map(({ id, name, slug, poster, experience }) => (
-          <MovieItem
-            key={name}
-            id={id}
-            name={name}
-            slug={slug}
-            poster={poster}
-            experience={experience}
-          />
-        ))}
+        {this.props.movies.items.map(
+          ({ id, name, slug, poster, experience }) => (
+            <MovieItem
+              key={name}
+              id={id}
+              name={name}
+              slug={slug}
+              poster={poster}
+              experience={experience}
+            />
+          )
+        )}
       </div>
     );
   }

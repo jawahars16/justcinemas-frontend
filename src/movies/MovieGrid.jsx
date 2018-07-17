@@ -6,7 +6,10 @@ import fetchMovies from "./actions";
 
 class MovieGrid extends Component {
   componentDidMount() {
-    this.props.fetchMovies(this.props.filter.language, this.props.filter.location);
+    this.props.fetchMovies(
+      this.props.filter.language,
+      this.props.filter.location
+    );
   }
 
   render() {
@@ -14,24 +17,38 @@ class MovieGrid extends Component {
       return this.showProgress();
     }
 
+    if(this.props.movies.items.length === 0){
+      return this.showEmptyMoviesPlaceHolder();
+    }
+
     return this.props.movies.error || false
       ? this.showError()
       : this.showMovies();
   }
 
+  showEmptyMoviesPlaceHolder() {
+    return (
+      <div className="text-center">
+        <h3>No Movies found !!!</h3>
+      </div>
+    );
+  }
+
   showMovies() {
     return (
       <div className="row">
-        {this.props.movies.items.map(({ id, name, slug, poster, experience }) => (
-          <MovieItem
-            key={name}
-            id={id}
-            name={name}
-            slug={slug}
-            poster={poster}
-            experience={experience}
-          />
-        ))}
+        {this.props.movies.items.map(
+          ({ id, name, slug, poster, experience }) => (
+            <MovieItem
+              key={name}
+              id={id}
+              name={name}
+              slug={slug}
+              poster={poster}
+              experience={experience}
+            />
+          )
+        )}
       </div>
     );
   }
