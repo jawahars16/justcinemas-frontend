@@ -12,10 +12,8 @@ class MenuBar extends React.Component {
   }
   render() {
     return (
-      <div className="row">
-        <div className="col-lg-5" />
-        <div className=" col-lg-2">
-          <div class="btn-group" role="group" aria-label="Basic example">
+
+          <div>
             <button
               type="button"
               className={`btn btn-primary  ${
@@ -35,9 +33,7 @@ class MenuBar extends React.Component {
               Coming Soon
             </button>
           </div>
-        </div>
-        <div className="col-lg-5" />
-      </div>
+
     );
   }
 }
