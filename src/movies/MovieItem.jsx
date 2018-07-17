@@ -8,13 +8,13 @@ class MovieItem extends React.Component {
   }
   render() {
     return (
-      <div className="col-sm-2" style={{ marginBottom: 10 }}>
+      <div className="col-sm-2" style={{ marginBottom: 10, cursor: 'pointer' }}>
         <div
           className="card shadow"
           onClick={() => {
             this.nextPath(`/movie/${this.props.id}`);
           }}
-          style={{ padding: 0 }}
+          style={{ padding: 0, height: 320 }}
         >
           <img
             className="card-img-top"
