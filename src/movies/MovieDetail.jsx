@@ -14,25 +14,33 @@ class MovieDetail extends Component {
   showMovies() {
     return (
       <div className="container">
-        <h3>{this.props.detail.data.name}</h3>
+        <h3 className="text-primary">{this.props.detail.data.name}</h3>
         <p className="text-muted"> {this.props.detail.data.language}</p>
-        <iframe width="100%" height="345" src="https://www.youtube.com/embed/WGByijP0Leo" />
+        <iframe
+          width="100%"
+          height="345"
+          src="https://www.youtube.com/embed/WGByijP0Leo"
+        />
         <p />
-        <h5>Synopsis</h5>
-        <p>
-          {this.props.detail.data.synopsis}
-        </p>
+        <h5 className="text-primary">Synopsis</h5>
+        <p>{this.props.detail.data.synopsis}</p>
         <h5>
-          Genre <small>{this.props.detail.data.genre}</small>
+          <span className="text-primary">Genre</span>{" "}
         </h5>
+        <p>{this.props.detail.data.genre}</p>
         <h5>
-          Crew <small>O{this.props.detail.data.actors}</small>
+          <span className="text-primary">Crew </span>
         </h5>
-        <h5>
-           Images
-        </h5>
+        <p>{this.props.detail.data.actors}</p>
+        <h5 className="text-primary">Images</h5>
         <div className="row">
-            {[1, 2, 3, 4, 5, 6].map(()=> <img className="col-sm-2" style={{height: 200}} src={this.props.detail.data.poster}/>)}
+          {[1, 2, 3, 4, 5, 6].map(() => (
+            <img
+              className="col-sm-2"
+              style={{ height: 200 }}
+              src={this.props.detail.data.poster}
+            />
+          ))}
         </div>
       </div>
     );
