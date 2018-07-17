@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => (
   <nav className="navbar navbar-light navbar navbar-dark bg-primary justify-content-between">
-    <a className="navbar-brand" href="/">Navbar</a>
+    <a className="navbar-brand" href="/">Just Cinemas</a>
 
     <form class="form-inline">
         <select className="form-control mr-sm-2">
