@@ -12,31 +12,25 @@ class MenuBar extends React.Component {
   }
   render() {
     return (
-      <div className="row">
-        <div className="col-lg-5" />
-        <div className=" col-lg-2">
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button
-              type="button"
-              className={`btn btn-primary  ${
-                window.location.pathname == "/" ? "active" : ""
-              }`}
-              onClick={() => this.nextPath("/")}
-            >
-              Now Showing
-            </button>
-            <button
-              type="button"
-              className={`btn btn-primary  ${
-                window.location.pathname == "/upcoming-movie" ? "active" : ""
-              }`}
-              onClick={() => this.nextPath("/upcoming-movie")}
-            >
-              Coming Soon
-            </button>
-          </div>
-        </div>
-        <div className="col-lg-5" />
+      <div class="btn-group" role="group" aria-label="Basic example" style={{marginLeft: 15, marginBottom: 20}}>
+        <button
+          type="button"
+          className={`btn btn-primary  ${
+            window.location.pathname == "/" ? "active" : ""
+          }`}
+          onClick={() => this.nextPath("/")}
+        >
+          Now Showing
+        </button>
+        <button
+          type="button"
+          className={`btn btn-primary  ${
+            window.location.pathname == "/upcoming-movie" ? "active" : ""
+          }`}
+          onClick={() => this.nextPath("/upcoming-movie")}
+        >
+          Coming Soon
+        </button>
       </div>
     );
   }
