@@ -15,7 +15,7 @@ class MenuBar extends React.Component {
         class="btn-group"
         role="group"
         aria-label="Basic example"
-        style={{ marginLeft: 15, marginBottom: 20 }}
+        style={{ marginLeft: 12, marginBottom: 20 }}
       >
         <button
           type="button"
