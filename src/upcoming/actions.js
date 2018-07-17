@@ -19,11 +19,11 @@ const movieDataFetchFailure = {
   type: FETCH_UPCOMING_MOVIES_FAILURE,
 };
 
-const fetchMovies = () => {
+const fetchMovies = (lang, loc) => {
   return async (dispatch) => {
     dispatch(fetchMoviesInProgress);
     try {
-      const movies = await axios.get('http://localhost:9090/movies/upcoming')
+      const movies = await axios.get('http://localhost:9090/movies/now-showing?language='+lang+"&"+"location="+loc)
       // const movies = {data: [{
       //   id: 'asfasdfas',
       //   name: 'Kabali',

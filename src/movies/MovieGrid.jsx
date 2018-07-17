@@ -6,7 +6,7 @@ import fetchMovies from "./actions";
 
 class MovieGrid extends Component {
   componentDidMount() {
-    this.props.fetchMovies();
+    this.props.fetchMovies("", "");
   }
 
   render() {
@@ -62,6 +62,6 @@ export default connect(
     movies: state.movies
   }),
   dispatch => ({
-    fetchMovies: () => dispatch(fetchMovies())
+    fetchMovies: (lang, loc) => dispatch(fetchMovies(lang, loc))
   })
 )(MovieGrid);
