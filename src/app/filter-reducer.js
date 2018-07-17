@@ -1,6 +1,9 @@
 import * as actions from "./filter-actions";
 
-const initialState = { language: "", location: "" };
+const initialState = {
+  language: window.localStorage.getItem("language"),
+  location: window.localStorage.getItem("location")
+};
 
 const filter = (state = initialState, action) => {
   switch (action.type) {

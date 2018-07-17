@@ -20,17 +20,19 @@ class Header extends React.Component {
   onChangeLocation(e) {
     this.props.locationChanged(e.target.value);
     this.refreshMovieData(this.props.filter.language, e.target.value);
+    window.localStorage.setItem("location", e.target.value);
   }
 
   onChangeLanguage(e) {
     this.props.languageChanged(e.target.value);
     this.refreshMovieData(e.target.value, this.props.filter.location);
+    window.localStorage.setItem("language", e.target.value);
   }
 
   refreshMovieData(language, location) {
     if (window.location.pathname === "/") {
       this.props.fetchMovies(language, location);
-    } else if (window.location.pathname === "/upcoming-movies") {
+    } else if (window.location.pathname === "/upcoming-movie") {
       this.props.fetchUpcomingMovies(language, location);
     }
   }
