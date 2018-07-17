@@ -8,7 +8,7 @@ class MovieItem extends React.Component {
   }
   render() {
     return (
-      <div className="col-sm-2" style={{ marginBottom: 10, cursor: 'pointer' }}>
+      <div className="col-sm-2" style={{ marginBottom: 10, cursor: 'pointer', padding: 10 }}>
         <div
           className="card shadow"
           onClick={() => {
@@ -18,12 +18,15 @@ class MovieItem extends React.Component {
         >
           <img
             className="card-img-top"
+            style={{height:230}}
             alt={this.props.name}
             src={this.props.poster}
           />
           <div className="card-body">
-            <h6 className="card-title">{this.props.name}</h6>
-            <small className="card-text">{this.props.experiences}</small>
+            <div style={{whiteSpace: 'noWrap', textOverflow: 'ellipsis', overflow: 'hidden'}}>
+            {this.props.name}
+            </div>
+            <small className="card-text">{this.props.experience}</small>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ import Home from "./Home";
 import MovieDetail from "../movies/MovieDetail";
 import UpComingMovie from "./UpComing";
 import MenuBar from "./MenuBar";
+import Footer from "./Footer";
 
 const browserHistory = createHistory();
 
@@ -31,10 +32,10 @@ const Routes = () => (
 const Main = () => (
   <div>
     <Header />
-    <br />
-    <div className = "container">
-        <Routes />
+    <div className="container" role="main">
+      <Routes />
     </div>
+    <Footer />
   </div>
 );
 
