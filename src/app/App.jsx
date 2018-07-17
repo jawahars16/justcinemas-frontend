@@ -32,7 +32,9 @@ const Main = () => (
   <div>
     <Header />
     <br />
+    <div className = "container">
     <Routes />
+    </div>
   </div>
 );
 
