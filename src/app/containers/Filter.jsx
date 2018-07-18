@@ -46,9 +46,9 @@ class Filter extends React.Component {
           value={this.props.filter.language}
           onChange={this.onChangeLanguage}
         >
-          <option>All Language</option>
-          <option value="English">English</option>
-          <option value="Hindi">Hindi</option>
+          {["All Languages", "English", "Hindi"].map(lang => (
+            <option>{lang}</option>
+          ))}
         </select>
 
         <select
@@ -57,10 +57,9 @@ class Filter extends React.Component {
           value={this.props.filter.location}
           onChange={this.onChangeLocation}
         >
-          <option>All Location</option>
-          <option value="Pune">Pune</option>
-          <option value="Delhi">Delhi</option>
-          <option value="Bangalore">Bangalore</option>
+         {["All Locations", "Pune", "Delhi", "Bangalore"].map(loc => (
+            <option>{loc}</option>
+          ))}
         </select>
       </div>
     );
