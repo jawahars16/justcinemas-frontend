@@ -3,7 +3,7 @@ import MockAdapter from 'axios-mock-adapter';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import axios from 'axios';
-import fetchMovieDetail, { FETCH_MOVIE_DETAIL_PROGRESS, FETCH_MOVIE_DETAIL_SUCCESS, FETCH_MOVIE_DETAIL_FAILURE } from '../../src/movies/movie-detail-actions';
+import fetchMovieDetail, { FETCH_MOVIE_DETAIL_PROGRESS, FETCH_MOVIE_DETAIL_SUCCESS, FETCH_MOVIE_DETAIL_FAILURE } from '../../../src/movies/movie-detail-actions';
 
 const mockStore = configureMockStore([thunk])
 const mock = new MockAdapter(axios);
