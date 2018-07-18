@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Menu = props => {
   return (
@@ -8,24 +9,12 @@ const Menu = props => {
       aria-label="Basic example"
       style={{ marginLeft: 12, marginBottom: 20 }}
     >
-      <button
-        type="button"
-        className={`btn btn-primary  ${
-          window.location.pathname == "/" ? "active" : ""
-        }`}
-        onClick={() => props.onClickNowShowing()}
-      >
+      <NavLink exact to='/' className='btn btn-primary' activeClassName="active" >
         Now Showing
-      </button>
-      <button
-        type="button"
-        className={`btn btn-primary  ${
-          window.location.pathname == "/upcoming-movie" ? "active" : ""
-        }`}
-        onClick={() => props.onClickUpcoming()}
-      >
-        Coming Soon
-      </button>
+      </NavLink>
+      <NavLink exact to='/upcoming' className='btn btn-primary' activeClassName="active" >
+        Upcoming
+      </NavLink>
     </div>
   );
 };
