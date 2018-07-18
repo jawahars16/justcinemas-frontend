@@ -26,13 +26,7 @@ const fetchMovies = (path, lang, loc) => {
       const movies = await axios.get(
         `http://localhost:9090/movies/${path}?language=${lang}&location=${loc}`
       );
-      const moviesData = movies.data.map(movie => {
-        const sluggedData = slug(changeCase.sentenceCase(movie.name), {
-          lower: true
-        });
-        return { ...movie, slug: sluggedData };
-      });
-      dispatch(movieDataFetched(moviesData));
+      dispatch(movieDataFetched(movies.data));
     } catch (error) {
       dispatch(movieDataFetchFailure);
     }

@@ -6,6 +6,8 @@ const initialState = {
 };
 
 const filter = (state = initialState, action) => {
+  if (null == action) return state;
+
   switch (action.type) {
     case actions.LOCATION_CHANGED:
       return { ...state, location: action.payload };

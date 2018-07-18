@@ -29,7 +29,7 @@ const MovieList = props => {
     return showProgress();
   }
 
-  if (props.movies.items.length === 0) {
+  if (props.movies.items && 0 === props.movies.items.length) {
     return showEmptyMoviesPlaceHolder();
   }
 
