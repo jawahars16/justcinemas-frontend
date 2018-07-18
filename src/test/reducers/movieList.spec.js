@@ -8,11 +8,11 @@ import {
 describe("MovieList reducer", () => {
   it("Should return default state", () => {
     const defaultState = movieList(null, {});
-    expect(defaultState).toEqual(initialState);
+    expect(defaultState).toEqual({ fetching: false, items: [] });
   });
 
   it("Should return correct state on progress", () => {
-    const initialState = { fetching: false, items: [] };
+    const initialState = { fetching: false };
     const defaultState = movieList(initialState, {
       type: FETCH_MOVIES_PROGRESS
     });

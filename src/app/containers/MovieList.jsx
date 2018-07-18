@@ -14,7 +14,9 @@ class MovieGrid extends Component {
   }
 
   render() {
-    return <MovieList movies={this.props.movies}/>;
+    console.log("Movie list rendered");
+    console.log(this.props);
+    return <MovieList movies={this.props.movies} />;
   }
 }
 
