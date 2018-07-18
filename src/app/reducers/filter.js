@@ -1,4 +1,4 @@
-import * as actions from "./filter-actions";
+import * as actions from "../actions/filter";
 
 const initialState = {
   language: window.localStorage.getItem("language") || "",

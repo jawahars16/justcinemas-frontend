@@ -1,4 +1,4 @@
-import * as actions from './movie-detail-actions';
+import * as actions from '../actions/movieDetail';
 
 const reducer = (state = { fetching: false, data: {} }, action) => {
   switch(action.type) {
