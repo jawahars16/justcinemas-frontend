@@ -18,7 +18,7 @@ pipelines:
                 - node-and-java
               tasks:
                 - script: |
-                    yarn install
+                    yarn --ignore-engines install
                     yarn run test_with_coverage
       - build:
           jobs:
@@ -27,7 +27,7 @@ pipelines:
                 - node-and-java
               tasks:
                 - script: |
-                    yarn install
+                    yarn --ignore-engines install
                     REACT_APP_API_URL="http://localhost:9090" yarn run build              
 
       - deploy:
