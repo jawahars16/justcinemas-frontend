@@ -27,6 +27,7 @@ const MovieItem = props => {
         />
         <div className="card-body">
           <div
+            id="movie-name"
             style={{
               whiteSpace: "noWrap",
               textOverflow: "ellipsis",
