@@ -2,7 +2,6 @@ import React from "react";
 import * as actions from "../actions/filter";
 import { connect } from "react-redux";
 import fetchMovies from "../actions/movieGrid";
-// import fetchUpcomingMovies from "../upcoming/actions";
 
 const selectClass = {
   background: "transparent",
@@ -31,9 +30,9 @@ class Filter extends React.Component {
 
   refreshMovieData(language, location) {
     if (window.location.pathname === "/") {
-      this.props.fetchMovies("NOW_SHOWING", language, location);
-    } else if (window.location.pathname === "/upcoming-movie") {
-      this.props.fetchMovies("UPCOMING", language, location);
+      this.props.fetchMovies(false, language, location);
+    } else if (window.location.pathname === "/upcoming") {
+      this.props.fetchMovies(true, language, location);
     }
   }
 
