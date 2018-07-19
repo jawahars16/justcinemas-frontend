@@ -1,6 +1,7 @@
 import axios from "axios";
 import changeCase from "change-case";
 import slug from "slug";
+import { BASE_URL } from "../common/constants";
 
 export const FETCH_MOVIES_PROGRESS = "FETCH_MOVIES_PROGRESS";
 export const FETCH_MOVIES_SUCCESS = "FETCH_MOVIES_SUCCESS";
@@ -24,7 +25,7 @@ const fetchMovies = (path, lang, loc) => {
     dispatch(fetchMoviesInProgress);
     try {
       const movies = await axios.get(
-        `http://localhost:9090/movies?type=${path}&language=${lang}&location=${loc}`
+        `${BASE_URL}?type=${path}&language=${lang}&location=${loc}`
       );
       dispatch(movieDataFetched(movies.data));
     } catch (error) {
