@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import fetchMovies from "../actions/movieList";
-import MovieList from "../components/MovieList";
+import MovieListComponent from "../components/MovieList";
 
-class MovieGrid extends Component {
+class MovieList extends Component {
   componentDidMount() {
     this.props.fetchMovies(
       this.props.path,

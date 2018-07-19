@@ -13,8 +13,8 @@ import MovieList from "./containers/MovieList";
 const browserHistory = createHistory();
 const store = configureStore(browserHistory);
 
-const nowShowing = () => <MovieList path="now-showing" />;
-const upcoming = () => <MovieList path="upcoming" />;
+const nowShowing = () => <MovieList path="NOW_SHOWING" />;
+const upcoming = () => <MovieList path="UPCOMING" />;
 
 const Routes = () => (
   <div className="container" role="main">
