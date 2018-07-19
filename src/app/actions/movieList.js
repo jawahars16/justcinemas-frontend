@@ -24,7 +24,7 @@ const fetchMovies = (path, lang, loc) => {
     dispatch(fetchMoviesInProgress);
     try {
       const movies = await axios.get(
-        `http://localhost:9090/movies/${path}?language=${lang}&location=${loc}`
+        `http://localhost:9090/movies?type=${path}&language=${lang}&location=${loc}`
       );
       dispatch(movieDataFetched(movies.data));
     } catch (error) {
