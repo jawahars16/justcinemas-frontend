@@ -20,8 +20,8 @@ const Routes = () => (
         <Menu />
         <br />
         <Switch>
-          <Route path="/:type?" component={MovieGrid}  />
-          <Route component={MovieDetail} path="/movie/:id" />
+          <Route exact path="/:type?" component={MovieGrid}  />
+          <Route exact component={MovieDetail} path="/movie/:id" />
         </Switch>
       </div>
     </ConnectedRouter>

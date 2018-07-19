@@ -1,10 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
-
-const navigate = (path, history) => {
-  history.push(path);
-};
+import { withRouter, Link } from "react-router-dom";
 
 const MovieItem = props => {
   return (
@@ -12,11 +8,9 @@ const MovieItem = props => {
       className="col-sm-2"
       style={{ marginBottom: 10, cursor: "pointer", padding: 10 }}
     >
-      <div
+      <Link
         className="card shadow"
-        onClick={() => {
-          navigate(`/movie/${props.id}`, props.history);
-        }}
+        to={`/movie/${props.id}`}
         style={{ padding: 0, height: 320 }}
       >
         <img
@@ -38,9 +32,9 @@ const MovieItem = props => {
           </div>
           <small className="card-text">{props.experience}</small>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
 
-export default withRouter(MovieItem);
+export default MovieItem;
