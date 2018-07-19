@@ -14,7 +14,7 @@ class MovieDetail extends Component {
   showMovies() {
     return (
       <div className="container">
-        <h3 className="text-primary">{this.props.detail.data.name}</h3>
+        <h3 className="text-info">{this.props.detail.data.name}</h3>
         <p className="text-muted"> {this.props.detail.data.language}</p>
         <iframe
           width="100%"
@@ -22,17 +22,17 @@ class MovieDetail extends Component {
           src="https://www.youtube.com/embed/WGByijP0Leo"
         />
         <p />
-        <h5 className="text-primary">Synopsis</h5>
+        <h5 className="text-info">Synopsis</h5>
         <p>{this.props.detail.data.synopsis}</p>
         <h5>
-          <span className="text-primary">Genre</span>{" "}
+          <span className="text-info">Genre</span>{" "}
         </h5>
         <p>{this.props.detail.data.genre}</p>
         <h5>
-          <span className="text-primary">Crew </span>
+          <span className="text-info">Crew </span>
         </h5>
         <p>{this.props.detail.data.actors}</p>
-        <h5 className="text-primary">Images</h5>
+        <h5 className="text-info">Images</h5>
         <div className="row">
           {[1, 2, 3, 4, 5, 6].map(() => (
             <img

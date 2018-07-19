@@ -23,7 +23,7 @@ const fetchMovies = (lang, loc) => {
   return async (dispatch) => {
     dispatch(fetchMoviesInProgress);
     try {
-      const movies = await axios.get('http://localhost:9090/movies/upcoming?language='+lang+"&"+"location="+loc)
+      const movies = await axios.get('http://localhost:9090/movies?language='+lang+"&"+"location="+loc+"&type="+"NOW_SHOWING")
       // const movies = {data: [{
       //   id: 'asfasdfas',
       //   name: 'Kabali',
