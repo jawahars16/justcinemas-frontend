@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",
-    "test_with_coverage": "CI=true react-scripts test --env=jsdom --coverage"
+    "test_with_coverage": "CI=true jest --env=jsdom --coverage"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./config/jest.setup.js",
