@@ -3,7 +3,7 @@ import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
 
-window.localStorage = {
+global.localStorage = {
   getItem: function() {
     return "";
   }
