@@ -1,8 +1,14 @@
 import filter from "../../app/reducers/filter";
 import { locationChanged, languageChanged } from "../../app/actions/filter";
+// import storage from "../../app/util/storage";
+
+const mock = () => ({
+  language: "",
+  location: ""
+});
+jest.mock("../../app/util/storage", mock);
 
 describe("Filter reducer", () => {
-
   it("Should return correct default state.", () => {
     const initialState = { language: "", location: "" };
     const defaultState = filter(initialState, null);
@@ -14,7 +20,6 @@ describe("Filter reducer", () => {
     const nextState = filter(state, locationChanged);
     expect(nextState).toEqual({ language: "English", location: "Pune" });
   });
-
 
   it("Should return correct state on language changed.", () => {
     const state = { language: "Hindi", location: "Pune" };

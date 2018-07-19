@@ -1,9 +1,7 @@
 import * as actions from "../actions/filter";
+import storage from "../util/storage";
 
-const initialState = {
-  language: window.localStorage.getItem("language") || "",
-  location: window.localStorage.getItem("location") || ""
-};
+const initialState = storage();
 
 const filter = (state = initialState, action) => {
   if (null == action) return state;
