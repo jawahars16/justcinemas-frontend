@@ -1,4 +1,8 @@
-import { FETCH_MOVIES_PROGRESS, FETCH_MOVIES_SUCCESS, FETCH_MOVIES_FAILURE } from '../actions/movieList'
+import {
+  FETCH_MOVIES_PROGRESS,
+  FETCH_MOVIES_SUCCESS,
+  FETCH_MOVIES_FAILURE
+} from '../actions/movieGrid'
 
 const reducer = (state = { fetching: false, items: [] }, action) => {
   switch(action.type) {

@@ -19,10 +19,12 @@ const movieDataFetchFailure = {
   type: FETCH_MOVIES_FAILURE
 };
 
-const fetchMovies = (path, lang, loc) => {
+const fetchMovies = (upcoming = false, lang = 'All Languages', loc = 'All Locations') => {
   return async dispatch => {
     dispatch(fetchMoviesInProgress);
+
     try {
+      const path = upcoming ? 'UPCOMING' : 'NOW_SHOWING';
       const movies = await axios.get(
         `http://localhost:9090/movies?type=${path}&language=${lang}&location=${loc}`
       );

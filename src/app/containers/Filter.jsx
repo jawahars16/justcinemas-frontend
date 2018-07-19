@@ -1,7 +1,7 @@
 import React from "react";
 import * as actions from "../actions/filter";
 import { connect } from "react-redux";
-import fetchMovies from "../actions/movieList";
+import fetchMovies from "../actions/movieGrid";
 // import fetchUpcomingMovies from "../upcoming/actions";
 
 const selectClass = {

@@ -8,13 +8,10 @@ import Header from "./components/Header";
 import MovieDetail from "./containers/MovieDetail";
 import Menu from "./containers/Menu";
 import Footer from "./components/Footer";
-import MovieList from "./containers/MovieGrid";
+import MovieGrid from "./containers/MovieGrid";
 
 const browserHistory = createHistory();
 const store = configureStore(browserHistory);
-
-const nowShowing = () => <MovieList path="NOW_SHOWING" />;
-const upcoming = () => <MovieList path="UPCOMING" />;
 
 const Routes = () => (
   <div className="container" role="main">
@@ -23,8 +20,7 @@ const Routes = () => (
         <Menu />
         <br />
         <Switch>
-          <Route exact component={nowShowing} path="/" />
-          <Route exact component={upcoming} path="/upcoming" />
+          <Route path="/:type?" component={MovieGrid}  />
           <Route component={MovieDetail} path="/movie/:id" />
         </Switch>
       </div>

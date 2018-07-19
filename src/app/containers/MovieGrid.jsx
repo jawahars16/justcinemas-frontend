@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import fetchMovies from "../actions/movieList";
+import fetchMovies from "../actions/movieGrid";
 import MovieGrid from "../components/MovieGrid";
 
 
 const mapPropsToComponent = (state, props) => ({
   movies: state.movies,
-  filter: state.filter,
-  path: props.path
 });
-const mapDispatchToProps = dispatch => ({
-  fetchMovies: (path, lang, loc) => dispatch(fetchMovies(path, lang, loc))
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchMovies: (lang, loc) => dispatch(fetchMovies(ownProps.match.params.type === 'upcoming', lang, loc))
 })
 
 

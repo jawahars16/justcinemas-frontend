@@ -5,25 +5,20 @@ import MovieItem from "./MovieItem";
 
 class MovieGrid extends Component {
   componentDidMount() {
-    this.props.fetchMovies(
-      this.props.path,
-      this.props.filter.language,
-      this.props.filter.location
-    )
+    this.props.fetchMovies()
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevProps.filter !== this.props.filter) {
-  //     this.props.fetchMovies();
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.type !== this.props.match.params.type) {
+      this.props.fetchMovies();
+    }
+  }
 
   render() {
     if(this.props.movies.fetching) {
       return this.showProgress()
     }
-
-    if (this.props.movies.items.length === 0) {
+    if (this.props.movies.items && this.props.movies.items.length === 0) {
       return this.showEmptyMoviesPlaceHolder()
     }
 
@@ -72,7 +67,7 @@ class MovieGrid extends Component {
 MovieGrid.defaultProps = {
   movies: {
     items: []
-  }
+  },
 };
 
 MovieGrid.propTypes = {
