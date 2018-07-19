@@ -39,7 +39,7 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <div class="form-inline">
+      <div className="form-inline">
         <select
           className="form-control mr-sm-2"
           style={selectClass}

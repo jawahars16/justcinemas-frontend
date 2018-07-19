@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import MovieList from "../../app/components/MovieList";
+import MovieGrid from "../../app/components/MovieGrid";
 import MovieItem from "../../app/components/MovieItem";
 
 describe("MovieList component", () => {

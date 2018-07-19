@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import MovieDetail from "./containers/MovieDetail";
 import Menu from "./containers/Menu";
 import Footer from "./components/Footer";
-import MovieList from "./containers/MovieList";
+import MovieList from "./containers/MovieGrid";
 
 const browserHistory = createHistory();
 const store = configureStore(browserHistory);
