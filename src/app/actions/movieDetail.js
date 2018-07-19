@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { BASE_URL } from '../common/constants';
 
 export const FETCH_MOVIE_DETAIL_PROGRESS = "FETCH_MOVIE_DETAIL_PROGRESS";
 export const FETCH_MOVIE_DETAIL_SUCCESS = "FETCH_MOVIE_DETAIL_SUCCESS";
@@ -21,7 +22,7 @@ const fetchMovieDetail = id => {
   return async dispatch => {
     dispatch(fetchMovieDetailInProgress);
     try {
-      const movieDetail = await axios.get(`http://localhost:9090/movies/${id}`);
+      const movieDetail = await axios.get(`${BASE_URL}/${id}`);
       dispatch(movieDetailFetched(movieDetail.data));
     } catch (error) {
       dispatch(movieDetailFetchFailure);
