@@ -31,9 +31,9 @@ class Filter extends React.Component {
 
   refreshMovieData(language, location) {
     if (window.location.pathname === "/") {
-      this.props.fetchMovies(language, location);
+      this.props.fetchMovies("NOW_SHOWING", language, location);
     } else if (window.location.pathname === "/upcoming-movie") {
-      this.props.fetchUpcomingMovies(language, location);
+      this.props.fetchMovies("UPCOMING", language, location);
     }
   }
 
@@ -73,6 +73,6 @@ export default connect(
   dispatch => ({
     locationChanged: location => dispatch(actions.locationChanged(location)),
     languageChanged: language => dispatch(actions.languageChanged(language)),
-    fetchMovies: (lang, loc) => dispatch(fetchMovies(lang, loc))
+    fetchMovies: (type, lang, loc) => dispatch(fetchMovies(type, lang, loc))
   })
 )(Filter);

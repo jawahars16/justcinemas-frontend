@@ -21,7 +21,7 @@ const fetchMovieDetail = id => {
   return async dispatch => {
     dispatch(fetchMovieDetailInProgress);
     try {
-      const movieDetail = await axios.get(`http://localhost:9090/movies/${id}`);
+      const movieDetail = await axios.get(`http://localhost:9090/movie/${id}`);
       dispatch(movieDetailFetched(movieDetail.data));
     } catch (error) {
       dispatch(movieDetailFetchFailure);
