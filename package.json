@@ -30,6 +30,7 @@
     "test_with_coverage": "CI=true react-scripts test --env=jsdom --coverage"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "./config/jest.setup.js",
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
       "!**/node_modules/**",
