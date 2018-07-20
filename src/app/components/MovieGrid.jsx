@@ -7,16 +7,16 @@ class MovieGrid extends Component {
     console.log("Mount");
     console.log(this.props.filter);
     this.props.fetchMovies(
-      this.props.filter.language,
-      this.props.filter.location
+      this.props.filter && this.props.filter.language,
+      this.props.filter && this.props.filter.location
     );
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.type !== this.props.match.params.type) {
       this.props.fetchMovies(
-        this.props.filter.language,
-        this.props.filter.location
+        this.props.filter && this.props.filter.language,
+        this.props.filter && this.props.filter.location
       );
     }
   }

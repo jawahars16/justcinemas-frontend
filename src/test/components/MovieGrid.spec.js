@@ -6,7 +6,7 @@ import MovieItem from "../../app/components/MovieItem";
 
 describe("MovieGrid component", () => {
   it("Should render loading... on progress", () => {
-    const props = { movies: {fetching: true}, fetchMovies: jest.fn() };
+    const props = { movies: {fetching: true}, fetchMovies: jest.fn(), filter: {language: "", location: ""} };
     const node = shallow(<MovieGrid {...props} />);
     expect(node.find("div").text()).toEqual("Loading...");
   });
