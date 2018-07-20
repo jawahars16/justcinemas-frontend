@@ -6,6 +6,7 @@ const mock = () => ({
   language: "",
   location: ""
 });
+
 jest.mock("../../app/util/storage", mock);
 
 describe("Filter reducer", () => {
