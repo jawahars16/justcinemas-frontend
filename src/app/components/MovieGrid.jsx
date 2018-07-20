@@ -2,24 +2,31 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import MovieItem from "./MovieItem";
 
-
 class MovieGrid extends Component {
   componentDidMount() {
-    this.props.fetchMovies()
+    console.log("Mount");
+    console.log(this.props.filter);
+    this.props.fetchMovies(
+      this.props.filter.language,
+      this.props.filter.location
+    );
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.type !== this.props.match.params.type) {
-      this.props.fetchMovies();
+      this.props.fetchMovies(
+        this.props.filter.language,
+        this.props.filter.location
+      );
     }
   }
 
   render() {
-    if(this.props.movies.fetching) {
-      return this.showProgress()
+    if (this.props.movies.fetching) {
+      return this.showProgress();
     }
     if (this.props.movies.items && this.props.movies.items.length === 0) {
-      return this.showEmptyMoviesPlaceHolder()
+      return this.showEmptyMoviesPlaceHolder();
     }
 
     return this.props.movies.error ? this.showError() : this.showMovies();
@@ -28,7 +35,7 @@ class MovieGrid extends Component {
   showMovies() {
     return (
       <div>
-        <div className='row'>
+        <div className="row">
           {this.props.movies.items.map(({ id, name, poster, experience }) => (
             <MovieItem
               key={id}
@@ -44,15 +51,11 @@ class MovieGrid extends Component {
   }
 
   showProgress() {
-    return (
-      <div>Loading...</div>
-    );
+    return <div>Loading...</div>;
   }
 
   showError() {
-    return (
-      <div>Error...</div>
-    );
+    return <div>Error...</div>;
   }
 
   showEmptyMoviesPlaceHolder() {
@@ -60,14 +63,14 @@ class MovieGrid extends Component {
       <div className="text-center">
         <h3>No Movies found !!!</h3>
       </div>
-    )
+    );
   }
 }
 
 MovieGrid.defaultProps = {
   movies: {
     items: []
-  },
+  }
 };
 
 MovieGrid.propTypes = {
@@ -75,6 +78,5 @@ MovieGrid.propTypes = {
     items: PropTypes.array
   })
 };
-
 
 export default MovieGrid;

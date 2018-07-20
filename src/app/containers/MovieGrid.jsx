@@ -6,6 +6,7 @@ import MovieGrid from "../components/MovieGrid";
 
 const mapPropsToComponent = (state, props) => ({
   movies: state.movies,
+  filter: state.filter
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
